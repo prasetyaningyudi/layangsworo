@@ -7,7 +7,8 @@ class User_authentication extends CI_Controller {
 		parent::__construct();
 		$this->load->library('session');		
 		$this->load->helper('url');			
-		$this->load->database();		
+		$this->load->database();
+		$this->load->model('menu_model');		
 	}
 	
 	public function index(){
@@ -15,7 +16,19 @@ class User_authentication extends CI_Controller {
 	}
 	
 	public function login(){
-		$this->load->view('index_view');
+		$data['menu'] = $this->menu_model->get_menu();
+		$data['sub_menu'] = $this->menu_model->get_sub_menu();
+
+
+		//view
+		$this->load->view('seg_header_view');
+		$this->load->view('seg_navbar_view');
+		$this->load->view('seg_sidebar_view', $data);
+		$this->load->view('content');
+		$this->load->view('seg_footer_view');
+	}	
+	
+	public function login1(){
 	}
 	
 	public function logout(){	
