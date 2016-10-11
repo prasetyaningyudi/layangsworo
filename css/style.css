@@ -111,13 +111,13 @@ a:hover{
 #sidebar-up{
 	width: 250px;
 	height: 100%;
-	min-height: 1000px;
+	min-height: 750px;
 }
 #container #sidebar{
 	position:absolute;
 	background: #3A3633;
 	height: 100%;
-	min-height: 1000px;	
+	min-height: 750px;	
 	color: #C0BBB7;
 	width: 250px;
 	-webkit-transition: all 0.5s ease;
@@ -133,7 +133,7 @@ a:hover{
 	background: #EDEDED;
 	margin-left: 250px;
 	height: 100%;
-	min-height: 1000px;
+	min-height: 750px;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
@@ -162,5 +162,15 @@ a:hover{
 }
 .my-content .panel-heading{
 	border-radius: 0px;
+}
+
+.panel-brown > .panel-heading {
+  background-image: -webkit-linear-gradient(top, #3a3a3a 0%, #2a2a2a 100%);
+  background-image:      -o-linear-gradient(top, #3a3a3a 0%, #2a2a2a 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3a3a3a), to(#2a2a2a));
+  background-image:         linear-gradient(to bottom, #3a3a3a 0%, #2a2a2a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff2e6da4', GradientType=0);
+  background-repeat: repeat-x;
+  color: #EEEEEE;
 }
 

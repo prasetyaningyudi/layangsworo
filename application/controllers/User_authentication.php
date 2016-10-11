@@ -18,10 +18,10 @@ class User_authentication extends CI_Controller {
 	public function login(){
 		$data['menu'] = $this->menu_model->get_menu();
 		$data['sub_menu'] = $this->menu_model->get_sub_menu();
-
+		$data['data_table'] = 'yes';
 
 		//view
-		$this->load->view('seg_header_view');
+		$this->load->view('seg_header_view', $data);
 		$this->load->view('seg_navbar_view');
 		$this->load->view('seg_sidebar_view', $data);
 		$this->load->view('content');
