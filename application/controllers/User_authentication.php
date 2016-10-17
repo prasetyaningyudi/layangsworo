@@ -35,4 +35,19 @@ class User_authentication extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('User_authentication/');
 	}	
+	
+	public function no_permission(){
+		$data['menu'] = $this->menu_model->get_menu();
+		$data['sub_menu'] = $this->menu_model->get_sub_menu();
+		$data['data_table'] = 'no';
+		$data['breadcurm'] = 'Home / No Permission';
+
+		//view
+		$this->load->view('seg_header_view', $data);
+		$this->load->view('seg_navbar_view');
+		$this->load->view('seg_sidebar_view', $data);
+		$this->load->view('seg_breadcurm_view');
+		$this->load->view('no_permission_view', $data);
+		$this->load->view('seg_footer_view');			
+	}
 }
