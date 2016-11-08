@@ -25,6 +25,7 @@ class Instansi_controller extends CI_Controller {
 		$data['menu'] = $this->menu_model->get_menu();
 		$data['sub_menu'] = $this->menu_model->get_sub_menu();		
 		$data['data_table'] = "yes";
+		$data['breadcurm'] = 'Home / Instansi / List';
 		//$data['about'] = "yes";
 		
 		//Load View
@@ -48,7 +49,8 @@ class Instansi_controller extends CI_Controller {
 			//Passing data
 			$data['menu'] = $this->menu_model->get_menu();
 			$data['sub_menu'] = $this->menu_model->get_sub_menu();
-			$data['data_table'] = 'no';			
+			$data['data_table'] = 'no';	
+			$data['breadcurm'] = 'Home / Instansi / Rekam';
 			//$data['role_access'] = array('1', '3');
 			//$data['about'] = "no";
 			
@@ -66,7 +68,7 @@ class Instansi_controller extends CI_Controller {
 		if($id == null){
 			header("location: " . base_url()."User_authentication/no_permission");
 		}else{
-			//load ruang by id
+			//load instansi by id
 			$this->db->select('ID');	
 			$this->db->select('NAMA_INSTANSI');	
 			$this->db->from('INSTANSI');	
@@ -87,7 +89,8 @@ class Instansi_controller extends CI_Controller {
 					//Passing data
 					$data['menu'] = $this->menu_model->get_menu();
 					$data['sub_menu'] = $this->menu_model->get_sub_menu();
-					$data['data_table'] = 'no';				
+					$data['data_table'] = 'no';	
+					$data['breadcurm'] = 'Home / Instansi / Ubah';
 					//$data['role_access'] = array('1', '3');
 					//$data['about'] = "no";			
 					

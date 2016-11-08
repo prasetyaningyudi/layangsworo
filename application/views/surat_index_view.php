@@ -17,13 +17,15 @@ $(document).ready(function() {
 				<table id="my_table" class="table table-striped">
 					<thead>
 					<tr>
-						<th>NOMOR</th>
-						<th>TGL</th>
-						<th>HAL</th>
-						<th>NOMOR AGENDA</th>
+						<th>Nomor</th>
+						<th>Tgl</th>
+						<th>Hal</th>
+						<th>AGENDA</th>
 						<th>Dari</th>
-						<th  class="text-center">edit</th>
-						<th class="text-center">cek status</th>
+						<th>Status</th>
+						<th class="text-center">edit</th>
+						<th class="text-center">disposisikan</th>
+						<th class="text-center">log</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -32,16 +34,38 @@ $(document).ready(function() {
 						<td><?php echo $item->NOMOR_SURAT; ?></td>
 						<td><?php echo $item->TGL_SURAT; ?></td>
 						<td><?php echo $item->HAL_SURAT; ?></td>
-						<td><?php echo $item->NOMOR_AGENDA; ?></td>
-						<td><?php echo $item->NAMA_INSTANSI; ?></td>
+						<td>
+							<?php 
+								if($item->NOMOR_AGENDA == null){
+									echo 'Belum Ada';
+								}else{
+									echo $item->NOMOR_AGENDA; 	
+								}
+							?>
+						</td>
+						<td><?php echo $item->NAMA_INSTANSI; ?></td>											
+						<td><?php echo $item->NAMA_STATUS; ?></td> 
 						<td class="text-center">
+							<?php if($item->STATUS_SURAT_ID == '1'): ?>						
 							<a class="btn-sm btn-primary" role="button" title="edit" href="<?php echo base_url().'Surat_controller/ubah/'.$item->ID;?>">
 								edit
 							</a>
+							<?php else: ?>
+								
+							<?php endif; ?>							
 						</td>
 						<td class="text-center">
-							<a class="btn-sm btn-primary" role="button" title="edit" href="<?php echo base_url().'Surat_controller/status/'.$item->ID;?>">
-								cek status
+							<?php if($item->STATUS_SURAT_ID == '1'): ?>
+							<a class="btn-sm btn-primary" role="button" title="edit" href="<?php echo base_url().'Disposisi_controller/rekam/'.$item->ID;?>">
+								disposisikan
+							</a>
+							<?php else: ?>
+							
+							<?php endif; ?>
+						</td>						
+						<td class="text-center">
+							<a class="btn-sm btn-primary" role="button" title="edit" href="<?php echo base_url().'Surat_controller/log/'.$item->ID;?>">
+								log
 							</a>
 						</td>
 					</tr>

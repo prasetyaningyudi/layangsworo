@@ -7,38 +7,43 @@
 				<div class="panel-title">Rekam Disposisi</div>
 			  </div>
 			  <div class="panel-body">
-				<form action="" id="disposisiform" method="get" class="form-horizontal">
+				<form action="" id="disposisiform" method="post" class="form-horizontal">
 				  <fieldset>
 					<?php foreach ($record as $item):?>
-					<input type="hidden" name="id" value="<?php echo $item->SURAT_ID;?>">
+					<input type="hidden" name="id" value="<?php echo $item->ID;?>">
 					<div class="form-group">
-					<label for="tgl" class="col-sm-2">Tgl Penerimaan Surat:<br></label>
-					<div class="col-sm-10">
-					<input class="form-control" id="tgl" type="text" name="tgl" value="<?php echo date('d F Y', strtotime($item->LOG_DATE)); ?>" placeholder="tgl" readonly required>
-					</div>
-					</div>	
+						<label for="nomor" class="col-sm-2">No Surat:<br></label>
+						<div class="col-sm-4">
+						<input class="form-control" id="nomor" type="text" name="nomor" value="<?php echo$item->NOMOR_SURAT; ?>" placeholder="nomor" readonly required>
+						</div>
+						<label for="tglsurat" class="col-sm-2">Tgl Surat:<br></label>
+						<div class="col-sm-4">
+						<input class="form-control" id="tglsurat" type="text" name="tglsurat" value="<?php echo date('d F Y', strtotime($item->TGL_SURAT)); ?>" placeholder="tglsurat" readonly required>
+						</div>
+					</div>						
+
 					<div class="form-group">
-					<label for="nomor" class="col-sm-2">Nomor Agenda:<br></label>
-					<div class="col-sm-10">
-					<input class="form-control" id="nomor" type="text" name="nomor" value="<?php echo $item->NOMOR_AGENDA; ?>" placeholder="nomor" readonly required>
-					</div>
+						<label for="nomoragenda" class="col-sm-2">Nomor Agenda:<br></label>
+						<div class="col-sm-10">
+						<input class="form-control" id="nomoragenda" name="nomoragenda" type="text" name="nomor" value="<?php echo $item->NOMOR_AGENDA; ?>" placeholder="nomor agenda" required>
+						</div>
 					</div>
 					<?php endforeach; ?>					
 					<div class="form-group">
-					<label for="sifat" class="col-sm-2">Sifat Surat:<br></label>
-					<div class="col-sm-10">
-						<?php foreach ($record1 as $item):?>
-						<label class="radio-inline"><input type="radio" name="sifat" value="<?php echo $item->ID; ?>"><?php echo $item->NAMA_SIFAT; ?></label>
-						<?php endforeach; ?>	
-					</div>
+						<label for="sifat" class="col-sm-2">Sifat Surat:<br></label>
+						<div class="col-sm-10">
+							<?php foreach ($record1 as $item):?>
+							<label class="radio-inline"><input type="radio" name="sifat" value="<?php echo $item->ID; ?>" required><?php echo $item->NAMA_SIFAT; ?></label>
+							<?php endforeach; ?>	
+						</div>
 					</div>	
 					<div class="form-group">
-					<label for="unit" class="col-sm-2">Disposisi ke Unit:<br></label>
-					<div class="col-sm-10">
-						<?php foreach ($record2 as $item):?>
-						<label class="checkbox-inline"><input type="checkbox" name="unit[]" value="<?php echo $item->ID; ?>"><?php echo $item->NAMA_UNIT; ?></label>
-						<?php endforeach; ?>
-					</div>
+						<label for="unit" class="col-sm-2">Disposisi ke Unit:<br></label>
+						<div class="col-sm-10">
+							<?php foreach ($record2 as $item):?>
+							<label class="checkbox-inline"><input type="checkbox" name="unit[]" value="<?php echo $item->ID; ?>"><?php echo $item->NAMA_UNIT; ?></label>
+							<?php endforeach; ?>
+						</div>
 					</div>	
 					<div class="form-group">
 					<label for="petunjuk" class="col-sm-2">Petunjuk Disposisi:<br></label>

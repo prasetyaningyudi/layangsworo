@@ -26,13 +26,7 @@
 					<div class="col-sm-10">		
 					<textarea class="form-control" id="hal" name="hal" rows="2" placeholder="hal" required></textarea>
 					</div>
-					</div>
-					<div class="form-group">
-					<label for="noagenda" class="col-sm-2">Nomor Agenda:<br></label>
-					<div class="col-sm-10">
-					<input class="form-control" id="noagenda" type="text" name="noagenda" value="" placeholder="nomor agenda">
-					</div>
-					</div>					
+					</div>				
 					<div class="form-group">	
 					<label for="instansi" class="col-sm-2">Dari:<br></label>
 					<div class="col-sm-7">	
